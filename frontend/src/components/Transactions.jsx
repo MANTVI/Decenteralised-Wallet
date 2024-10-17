@@ -1,4 +1,18 @@
 import React, { useState } from 'react';
+import { AiFillPlayCircle } from "react-icons/ai";
+import { SiEthereum } from "react-icons/si";
+import { BsInfoCircle } from "react-icons/bs";
+
+const Input = ({ placeholder, name, type, value, handleChange }) => (
+  <input
+    placeholder={placeholder}
+    type={type}
+    step="0.0001"
+    value={value}
+    onChange={(e) => handleChange(e, name)}
+    className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
+  />
+);
 
 const Transactions = () => {
   // State to manage the selected section
@@ -29,7 +43,7 @@ const Transactions = () => {
                 onClick={() => handleSectionChange('Move Crypto')} 
                 className="hover:text-gray-400 w-full text-left"
               >
-                Move Crypto
+                Transactions
               </button>
             </li>
             <li className="py-2">
@@ -74,32 +88,49 @@ const Transactions = () => {
 
           {/* Conditionally rendering based on selectedSection */}
           {selectedSection === 'Overview' && (
-            <div>
-              <div className="flex items-center justify-between mt-4">
-                <div className="text-3xl font-bold">$0.00</div>
-                <div className="text-red-500">(0.00%)</div>
+            <div className='flex'>
+              <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
+          <div className="p-3 flex justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card .white-glassmorphism ">
+            <div className="flex justify-between flex-col w-full h-full">
+              <div className="flex justify-between items-start">
+                <div className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
+                  <SiEthereum fontSize={21} color="#fff" />
+                </div>
+                <BsInfoCircle fontSize={17} color="#fff" />
               </div>
-              <div className="mt-4">
-                <ul className="flex space-x-4">
-                  <li className="border-b-2 border-blue-500 pb-2">Tokens</li>
-                  <li className="pb-2">NFTs</li>
-                  <li className="pb-2">DeFi</li>
-                  <li className="pb-2">Transactions</li>
-                  <li className="pb-2">Spending Caps</li>
-                </ul>
-              </div>
-              <div className="mt-4 flex space-x-4">
-                <div className="bg-gray-700 p-2 rounded-lg">2 Accounts</div>
-                <div className="bg-gray-700 p-2 rounded-lg">7 Networks</div>
-                <div className="bg-gray-700 p-2 rounded-lg">More</div>
-              </div>
-              <div className="mt-4 text-center">
-                <p>No Tokens to Show</p>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2">
-                  Token Marketplace
-                </button>
+              <div>
+                {/* <p className="text-white font-light text-sm">
+                  {shortenAddress(currentAccount)}
+                </p> */}
+                <p className="text-white font-semibold text-lg mt-1">
+                  Ethereum
+                </p>
               </div>
             </div>
+          </div>
+          
+        </div>
+            <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
+            <Input placeholder="Address To" name="addressTo" type="text"  />
+            <Input placeholder="Amount (ETH)" name="amount" type="number" />
+            <Input placeholder="Keyword (Gif)" name="keyword" type="text" />
+            <Input placeholder="Enter Message" name="message" type="text"  />
+
+            <div className="h-[1px] w-full bg-gray-400 my-2" />
+
+            {/* {isLoading
+              ? <Loader />
+              : (
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+                >
+                  Send now
+                </button>
+              )} */}
+          </div>
+          </div>
           )}
 
           {/* Add content for the 'Move Crypto' section */}
