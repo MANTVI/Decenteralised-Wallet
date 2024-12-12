@@ -1,20 +1,21 @@
 import express from 'express'
 import dotenv, { config } from 'dotenv';
-
-const app = express()
+import Moralis from "moralis";
+import app from "./app.js"
 dotenv.config()
 const port=process.env.PORT
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-app.get('/vimal', (req, res) => {
-  res.send('Hello VIMAL!')
-})
-app.get('/vi', (req, res) => {
-  res.send('Hello vimalllllll Singh ')
-})
+const api = process.env.MORALIS_API_KEY;
 
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+
+Moralis.start({
+  apiKey: api,
 })
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Server is running on http://localhost:${port}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Error starting Moralis:", err);
+  });
