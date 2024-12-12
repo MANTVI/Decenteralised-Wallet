@@ -3,7 +3,7 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import axios from 'axios';
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
-import { shortenAddress } from './utils/shortenAddress';
+import { shortenAddress } from '../utils/shortenAddress';
 import { CHAINS_CONFIG } from "../chains";
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (

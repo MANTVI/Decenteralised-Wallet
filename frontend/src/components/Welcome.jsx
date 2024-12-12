@@ -3,6 +3,7 @@ import React, { useContext,useState } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 // import { TransactionContext } from "../context/TransactionContext";
 // import { shortenAddress } from "../utils/shortenAddress";
@@ -13,17 +14,7 @@ const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex jus
 
 
 const Welcome = () => {
-  // const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
-
-  // const handleSubmit = (e) => {
-  //   const { addressTo, amount, keyword, message } = formData;
-
-  //   e.preventDefault();
-
-  //   if (!addressTo || !amount || !keyword || !message) return;
-
-  //   sendTransaction();
-  // };
+  const navigate = useNavigate();
   const [createWallet, setcreateWallet] = useState(false)
 
   return (
@@ -46,9 +37,11 @@ const Welcome = () => {
               className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
             >
               <AiFillPlayCircle className="text-white mr-2" />
-              <p className="text-white text-base font-semibold">
+              <button
+              onClick={()=>navigate("/createwallet")}
+              className="text-white text-base font-semibold">
                 Create Wallet
-              </p>
+              </button>
             </button>
           )}
           </div>

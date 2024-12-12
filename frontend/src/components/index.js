@@ -6,3 +6,4 @@ export { default as Services } from "./Services";
 export { default as WalletView } from "./WalletView";
 export { default as Createwallet} from "./Createwallet"
 export { default as Input} from "./input"
+export {default as Recoverwallet} from "./Recoverwallet"

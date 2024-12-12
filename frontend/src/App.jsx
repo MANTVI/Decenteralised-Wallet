@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Layout from "./Layout";
-import { Welcome,WalletView, Createwallet} from './components/index';
+import { Welcome,WalletView, Createwallet,Recoverwallet} from './components/index';
 
 
 const App = () => {
@@ -30,6 +30,12 @@ const App = () => {
           element:<Createwallet
           setSeedPhrase={setSeedPhrase}
           setWallet={setWallet}
+          />
+         },
+         {path:"recoverwallet",
+          element:<Recoverwallet
+          setSeedPhrase={setSeedPhrase}
+                setWallet={setWallet}
           />
          },
       ]
