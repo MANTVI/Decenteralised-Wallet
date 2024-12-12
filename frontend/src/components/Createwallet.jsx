@@ -13,7 +13,7 @@ function Createwallet(
     // Generate wallet and fetch seed phrase from backend
     async function generateWallet() {
         try {
-            const response = await axios.get("http://localhost:3000/api/v1/generate-wallet");
+            const response = await axios.get(`https://decenteralised-wallet.vercel.app/api/v1/generate-wallet`);
             setNewSeedPhrase(response.data.seedPhrase);
             // setWallet(response.data.address);
             setHashedSeedPhrase(""); // Reset hashed seed phrase
@@ -32,7 +32,7 @@ function Createwallet(
 
         try {
             
-            const response = await axios.post("http://localhost:3000/api/v1/hash-seed", {
+            const response = await axios.post(`https://decenteralised-wallet.vercel.app/api/v1/hash-seed`, {
                 seedPhrase: seedphrase,
             });
             setHashedSeedPhrase(response.data.hashedSeed);

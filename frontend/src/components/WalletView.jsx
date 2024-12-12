@@ -39,7 +39,7 @@ const WalletView = ({
 
   async function getAccountTokens(wallet, selectedChain, setTokens, setNfts, setBalance) {
     try {
-      const res = await axios.get(`http://localhost:3000/api/v1/getTokens`, {
+      const res = await axios.get(`https://decenteralised-wallet.vercel.app/api/v1/getTokens`, {
         params: { userAddress: wallet, chain: selectedChain },
       });
       const response = res.data;
